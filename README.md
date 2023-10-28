@@ -1,15 +1,12 @@
 # native_emoji_picker
 
-A new Flutter plugin project.
+Flutter plugin to present emoji picker
 
-## Getting Started
+## Demo
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+![](https://github.com/c2p-cmd/native_emoji_picker_plugin/blob/main/emoji-picker-demo.gif)
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
+## Installatiom
+
+To install this plugin just add it to your pubspec.yaml and make sure your deployment is minimum set to iOS 13.
