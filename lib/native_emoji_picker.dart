@@ -5,11 +5,15 @@ class NativeEmojiPicker {
     return NativeEmojiPickerPlatform.instance.getPlatformVersion();
   }
 
-  // This function will call the iOS emoji picker and will result in
-  // new emoji
-  // paramters: initial emoji which is optional
-  // and defaults to "😎"
-  static Future<String> showEmojiPicker(String? initialEmoji) {
-    return NativeEmojiPickerPlatform.instance.showEmojiPicker(initialEmoji);
+  /// Takes optional [initialEmoji] or defaults to "😎"
+  /// [onNewEmoji] callback returns the result of the call
+  static void showEmojiPickerWith({
+    String? initialEmoji,
+    required void Function(String) onNewEmoji,
+  }) {
+    NativeEmojiPickerPlatform.instance.showEmojiPickerWith(
+      initialEmoji,
+      onNewEmoji,
+    );
   }
 }

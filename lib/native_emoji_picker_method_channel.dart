@@ -16,10 +16,20 @@ class MethodChannelNativeEmojiPicker extends NativeEmojiPickerPlatform {
     return version;
   }
 
+  /// Takes optional [initialEmoji] or defaults to "😎"
+  /// [onNewEmoji] callback returns the result of the call
   @override
-  Future<String> showEmojiPicker(String? initialEmoji) async {
-    final newEmoji = await methodChannel.invokeMethod<String>(
-        "show_emoji_picker_vc", initialEmoji);
-    return newEmoji ?? "😎";
+  void showEmojiPickerWith(
+    String? initialEmoji,
+    void Function(String) onNewEmoji,
+  ) {
+    methodChannel.invokeMethod<String>("show_emoji_picker_vc", initialEmoji);
+    methodChannel.setMethodCallHandler((call) {
+      if (call.method == "show_emoji_picker_vc") {
+        onNewEmoji.call(call.arguments.toString());
+      }
+
+      return Future.value(-1);
+    });
   }
 }
