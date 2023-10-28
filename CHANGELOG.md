@@ -13,3 +13,7 @@ Added platforms
 ## 0.0.4
 
 Dart Formatting & description
+
+## 0.1.0
+
+Using CallBack system in order to provide new emoji
