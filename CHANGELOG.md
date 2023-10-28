@@ -9,3 +9,7 @@ Version change & no TODO
 ## 0.0.3
 
 Added platforms
+
+## 0.0.4
+
+Dart Formatting & description
