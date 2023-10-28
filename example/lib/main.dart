@@ -22,11 +22,14 @@ class _MyAppState extends State<MyApp> {
   }
 
   void showPicker() async {
-    NativeEmojiPicker.showEmojiPicker(selectedEmoji).then((newEmoji) {
-      setState(() {
-        selectedEmoji = newEmoji;
-      });
-    });
+    NativeEmojiPicker.showEmojiPickerWith(
+      initialEmoji: selectedEmoji,
+      onNewEmoji: (newValue) {
+        setState(() {
+          selectedEmoji = newValue;
+        });
+      },
+    );
   }
 
   @override
