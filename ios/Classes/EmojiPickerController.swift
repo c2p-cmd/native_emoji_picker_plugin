@@ -10,8 +10,8 @@ import MCEmojiPicker
 
 class EmojiPickerController: UIViewController, MCEmojiPickerDelegate {
     // MARK: Properties
-    var result: FlutterResult?
     var initialEmoji: String?
+    var channel: FlutterMethodChannel?
     
     // MARK: Buttons
     private lazy var emojiButton: UIButton = {
@@ -64,7 +64,6 @@ class EmojiPickerController: UIViewController, MCEmojiPickerDelegate {
     
     @objc private func close(_ sender: UIButton) {
         dismiss(animated: true)
-        result?(nil)
     }
     
     // MARK: Overrides
@@ -79,10 +78,6 @@ class EmojiPickerController: UIViewController, MCEmojiPickerDelegate {
         emojiPicker.delegate = self
         
         present(emojiPicker, animated: true)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        result?(nil)
     }
     
     // MARK: Setup Layout
@@ -101,8 +96,6 @@ class EmojiPickerController: UIViewController, MCEmojiPickerDelegate {
     // MARK: Delegate Implementation
     func didGetEmoji(emoji: String) {
         emojiButton.setTitle(emoji, for: .normal)
-        dismiss(animated: false)
-        dismiss(animated: true)
-        result?(emoji)
+        channel?.invokeMethod("show_emoji_picker_vc", arguments: emoji)
     }
 }

@@ -2,10 +2,12 @@ import Flutter
 import UIKit
 
 public class NativeEmojiPickerPlugin: NSObject, FlutterPlugin {
+    static var channel: FlutterMethodChannel?
+    
     public static func register(with registrar: FlutterPluginRegistrar) {
-        let channel = FlutterMethodChannel(name: "native_emoji_picker", binaryMessenger: registrar.messenger())
+        channel = FlutterMethodChannel(name: "native_emoji_picker", binaryMessenger: registrar.messenger())
         let instance = NativeEmojiPickerPlugin()
-        registrar.addMethodCallDelegate(instance, channel: channel)
+        registrar.addMethodCallDelegate(instance, channel: channel!)
     }
     
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -15,22 +17,22 @@ public class NativeEmojiPickerPlugin: NSObject, FlutterPlugin {
             break
         case "show_emoji_picker_vc":
             let initialEmoji = call.arguments as? String
-            showPicker(initialEmoji, flutterResult: result)
+            showPicker(initialEmoji, on: Self.channel)
             break
         default:
             result(FlutterMethodNotImplemented)
         }
     }
     
-    func showPicker(_ initialEmoji: String?, flutterResult: @escaping FlutterResult) {
+    func showPicker(_ initialEmoji: String?, on channel: FlutterMethodChannel?) {
         guard let rootVC = UIApplication.shared.firstKeyWindow?.rootViewController else {
-            flutterResult(FlutterError(code: "VIEWCONTROLLER_NOT_FOUND", message: "NO ROOT VIEW CONTROLLER", details: nil))
+            channel?.invokeMethod("show_emoji_picker_vc", arguments: FlutterError(code: "VIEWCONTROLLER_NOT_FOUND", message: "NO ROOT VIEW CONTROLLER", details: nil))
             return
         }
         
         let emojiPickerVC = EmojiPickerController()
-        emojiPickerVC.result = flutterResult
         emojiPickerVC.initialEmoji = initialEmoji
+        emojiPickerVC.channel = Self.channel
         rootVC.present(emojiPickerVC, animated: true)
     }
 }
