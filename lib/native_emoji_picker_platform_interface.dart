@@ -26,4 +26,8 @@ abstract class NativeEmojiPickerPlatform extends PlatformInterface {
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  Future<String> showEmojiPicker(String? initialEmoji) {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
 }

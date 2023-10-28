@@ -1,0 +1,35 @@
+PODS:
+  - Flutter (1.0.0)
+  - integration_test (0.0.1):
+    - Flutter
+  - MCEmojiPicker (1.2.3)
+  - native_emoji_picker (0.0.1):
+    - Flutter
+    - MCEmojiPicker
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - native_emoji_picker (from `.symlinks/plugins/native_emoji_picker/ios`)
+
+SPEC REPOS:
+  trunk:
+    - MCEmojiPicker
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+  native_emoji_picker:
+    :path: ".symlinks/plugins/native_emoji_picker/ios"
+
+SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  integration_test: 13825b8a9334a850581300559b8839134b124670
+  MCEmojiPicker: 6650cfa8d79fc8d71bf77dbed6166f946cee9c96
+  native_emoji_picker: 0b202aba36d0f2e34a0b4f5002facfc7d2da8195
+
+PODFILE CHECKSUM: a57f30d18f102dd3ce366b1d62a55ecbef2158e5
+
+COCOAPODS: 1.12.1

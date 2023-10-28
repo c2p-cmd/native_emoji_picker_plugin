@@ -11,7 +11,15 @@ class MethodChannelNativeEmojiPicker extends NativeEmojiPickerPlatform {
 
   @override
   Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+    final version =
+        await methodChannel.invokeMethod<String>('getPlatformVersion');
     return version;
+  }
+
+  @override
+  Future<String> showEmojiPicker(String? initialEmoji) async {
+    final newEmoji =
+        await methodChannel.invokeMethod<String>("show_emoji_picker_vc", initialEmoji);
+    return newEmoji ?? "😎";
   }
 }
