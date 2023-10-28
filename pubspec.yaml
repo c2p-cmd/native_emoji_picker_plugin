@@ -1,6 +1,6 @@
 name: native_emoji_picker
 description: Flutter plugin to present emoji picker
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/c2p-cmd/native_emoji_picker_plugin
 
 environment:
