@@ -1,7 +1,7 @@
 name: native_emoji_picker
-description: Flutter plugin to present emoji picker, this call the underlying swift code to give you nice emoji only picker for your flutter app.
-            currently supports only iOS.
-version: 0.1.0
+description: Flutter plugin to present emoji picker, this calls the underlying swift code to give you nice emoji only picker for your flutter app.
+            This plugin currently supports only iOS.
+version: 0.1.1
 homepage: https://github.com/c2p-cmd/native_emoji_picker_plugin
 
 environment:
