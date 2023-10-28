@@ -5,7 +5,7 @@ class NativeEmojiPicker {
     return NativeEmojiPickerPlatform.instance.getPlatformVersion();
   }
 
-  // This function will call the iOS emoji picker and will result in 
+  // This function will call the iOS emoji picker and will result in
   // new emoji
   // paramters: initial emoji which is optional
   // and defaults to "😎"
